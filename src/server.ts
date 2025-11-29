@@ -3,7 +3,7 @@ import colors from 'colors';
 import router from './router';
 import db from './config/db';
 
-async function connectDB() {
+export async function connectDB() {
     try{
         await db.authenticate();
         db.sync();

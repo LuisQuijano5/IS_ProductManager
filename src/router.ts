@@ -46,13 +46,6 @@ router.patch('/:id',
     handleInputErrors,
     updateAvailability);
 
-router.patch('/:id', 
-    param('id')
-        .isInt().withMessage('ID no valido')
-        .notEmpty().withMessage('El ID del producto no puede ir vacio'),
-    handleInputErrors,
-    updateAvailability);
-
 router.delete('/:id', 
     param('id')
         .isInt().withMessage('ID no valido')

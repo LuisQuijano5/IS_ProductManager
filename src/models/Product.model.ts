@@ -19,7 +19,7 @@ class Product extends Model {
     @Column({
         type: DataType.BOOLEAN
     })
-    availability: boolean
+    declare availability: boolean // CAMBIO AGREGUE DECLARE
 }
 
 export default Product;
