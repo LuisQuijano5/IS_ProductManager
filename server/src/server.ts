@@ -3,7 +3,9 @@ import colors from 'colors';
 import cors, { CorsOptions } from 'cors';
 import swaggerUi from 'swagger-ui-express'
 import swaggerSpec, { swaggerUiOptions } from './config/swagger';
-import router from './router';
+import productRouter from './routes/product.route';
+import authRouter from './routes/auth.route';
+
 import db from './config/db';
 
 export async function connectDB() {
@@ -35,7 +37,8 @@ server.use(cors());
 
 // Middleware
 server.use(express.json());
-server.use('/api/products', router);
+server.use('/api/products', productRouter);
+server.use('/api/auth', authRouter);
 
 //DOCS
 server.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, swaggerUiOptions))
