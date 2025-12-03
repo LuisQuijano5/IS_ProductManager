@@ -72,7 +72,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
 
         res.json('Hemos enviado un correo con las instrucciones');
     } catch (error) {
-        res.status(500).json({ error: error });
+        res.status(500).json({ error: "hubo un error" });
     }
 }
 
