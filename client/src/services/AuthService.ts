@@ -1,7 +1,7 @@
 import { safeParse } from 'valibot';
 import api from "../lib/axios"; 
 import { isAxiosError } from 'axios';
-import { User, UserSchema, AuthSchema,  NewPasswordForm} from '../types';
+import { User, UserSchema} from '../types';
 
 type UserLoginForm = Pick<User, 'email'> & { password: string };
 type UserRegisterForm = Pick<User, 'name' | 'email'> & { password: string, password_confirmation: string, image?: string };
