@@ -52,7 +52,7 @@ describe('POST /api/auth/forgot-password', () => {
             .send({ email: 'forgot@test.com' });
 
         expect(response.status).toBe(200);
-        expect(response.body).toBe('Hemos enviado un coreeo con las instrucciones');
+        expect(response.body).toBe('Hemos enviado un correo con las instrucciones');
     });
 });
 

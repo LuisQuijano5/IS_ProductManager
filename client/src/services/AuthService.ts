@@ -48,7 +48,8 @@ export async function getUser() {
 export async function validateToken(token: string) {
     try {
         const url = '/api/auth/validate-token';
-        const { data } = await api.post(url, { token });
+        //const { data } = await api.post(url, { token });
+        await api.post(url, { token });
         return true; 
     } catch (error) {
         throw new Error('Token no válido');
