@@ -3,6 +3,7 @@ import User from "../models/User.model";
 import { checkPassword, hashPassword, generateJWT } from "../utils/auth";
 import crypto from 'node:crypto';
 import { AuthEmail } from "../emails/AuthEmail";
+import { loginSchema } from "../schemas/authSchema";
 
 export const createAccount = async (req: Request, res: Response) => {
     try {
@@ -25,6 +26,14 @@ export const createAccount = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
     try {
+        const result = loginSchema.safeParse(req.body);
+
+        if (!result.success) {
+            return res.status(400).json({ 
+                error: result.error.issues[0].message 
+            });
+        }
+
         const { email, password } = req.body;
 
         const user = await User.findOne({ where: { email } });
