@@ -12,7 +12,7 @@ export class AuthEmail {
     const resetURL = `${process.env.FRONTEND_URL}/auth/nuevo-password/${user.token}`;
 
     const { data, error } = await resend.emails.send({
-      from: process.env.EMAIL_FROM!,
+      from: process.env.RESEND_FROM!,
       to: user.email,
       subject: "Restablecer tu contraseña",
       html: `
@@ -32,6 +32,7 @@ export class AuthEmail {
     console.log("Correo enviado:", data?.id);
   };
 }
+
 
 
 

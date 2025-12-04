@@ -12,6 +12,7 @@
         "declaration": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
+        "types": ["jest", "node"],
         "useDefineForClassFields": false // CAMBIO IMPORTANTE DOCUMENTARRR 
     },
     "include": ["src/**/*.ts"],
